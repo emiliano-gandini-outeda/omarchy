@@ -158,12 +158,13 @@ swaybg
 wf-recorder
 wtype
 xclip
+vesktop
+wl-screenrec
+zen-browser-bin
 asdcontrol-git
 clipse
 github-desktop
 omarchy-lazyvim
 proton-ge-custom-bin
 python-pyautogui
-vesktop
-wl-screenrec
-zen-browser-bin
+test
