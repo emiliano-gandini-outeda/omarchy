@@ -1,0 +1,10 @@
+{
+    "discordBranch": "stable",
+    "minimizeToTray": true,
+    "arRPC": true,
+    "spellCheckLanguages": [
+        "en-US",
+        "en"
+    ],
+    "splashColor": "rgb(219, 220, 223)"
+}

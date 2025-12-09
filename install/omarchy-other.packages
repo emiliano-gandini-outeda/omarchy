@@ -42,6 +42,22 @@ webp-pixbuf-loader
 wget
 yay-debug
 zram-generator
+amd-ucode
+efibootmgr
+ntfs-3g
+nvidia-settings
+rsync
+socat
+xdg-desktop-portal-wlr
+asdcontrol-git
+clipse
+github-desktop
+omarchy-lazyvim
+proton-ge-custom-bin
+python-pyautogui
+vesktop
+wl-screenrec
+zen-browser-bin
 
 # T2 MacBook support packages
 apple-bcm-firmware
