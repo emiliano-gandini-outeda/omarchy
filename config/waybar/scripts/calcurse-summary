@@ -1,0 +1,10 @@
+#!/bin/sh
+
+NEXT=$(calcurse -n | head -n 1 | sed 's/^ *//')
+
+if [ -z "$NEXT" ]; then
+    echo "No events"
+else
+    echo "$NEXT"
+fi
+

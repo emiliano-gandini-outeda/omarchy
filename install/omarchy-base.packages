@@ -145,6 +145,8 @@ gphoto2
 gvfs-gphoto2
 hyprshot
 okular
+rofi
+fish
 rofi-calc
 speedtest-cli
 starship
@@ -152,4 +154,6 @@ swayidle
 swaybg
 wf-recorder
 wtype
+alacritty
 xclip
+calcurse

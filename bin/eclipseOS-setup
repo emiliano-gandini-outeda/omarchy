@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "=== Installing eclipseOS extra packages ==="
+echo
+
+AUR_PACKAGES=(
+  "python-pyautogui"
+  "vesktop"
+  "clipse"
+  "zen-broswer-bin"
+  "visual-studio-code-bin"
+)
+
+for package in "${AUR_PACKAGES[@]}"; do
+  echo "-> Installing $package..."
+  yay -S --noconfirm "$package"
+done
+
+echo
+echo "-> Installing github-desktop (NODE_VERSION=20.0)..."
+NODE_VERSION=20.0 yay -S --noconfirm github-desktop
+
+echo
+echo "✔ Done! All eclipseOS packages installed."
+echo "Press ENTER to close..."
+read

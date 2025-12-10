@@ -7,9 +7,16 @@
   "margin-left":4,
   "margin-right":4,
   "height": 26,
-  "modules-left": ["custom/omarchy", "hyprland/workspaces", "clock", "custom/mpris-spacer", "idle_inhibitor", "custom/mpris-spacer"],
+  "modules-left": [
+    "custom/omarchy",
+    "hyprland/workspaces",
+    "clock", 
+    "custom/mpris-spacer",
+    "idle_inhibitor",
+    "custom/mpris-spacer"
+  ],
   "modules-center": ["custom/window","custom/update", "custom/screenrecording-indicator"],
-  "modules-right": [
+  "modules-right": ["custom/calcurse", "custom/mpris-spacer",
     "mpris",
     "custom/mpris-spacer",
     "group/tray-expander",
@@ -174,6 +181,13 @@
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
     "signal": 8,
     "return-type": "json"
+  },
+  "custom/calcurse": {
+  "format": "  {}",
+  "exec": "~/.config/waybar/scripts/calcurse-summary",
+  "interval": 60,
+  "on-click": "~/.config/waybar/scripts/calcurse-popup",
+  "tooltip": false
   },
   "tray": {
     "icon-size": 12,

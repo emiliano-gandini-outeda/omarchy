@@ -1,0 +1,21 @@
+#!/bin/sh
+
+alacritty --class calcurse_dropdown -e calcurse &
+
+# Esperar hasta que la ventana aparezca (polling)
+for i in $(seq 1 20); do
+    WIN=$(hyprctl clients -j | jq -r '.[] | select(.class=="calcurse_dropdown") | .address')
+    [ -n "$WIN" ] && break
+    sleep 0.05
+done
+
+# Si no aparece, abortar
+[ -z "$WIN" ] && exit 1
+
+# Aplicar floating + tamaño + centrado
+hyprctl dispatch togglefloating address:$WIN
+hyprctl dispatch resizewindowpixel 900 620 address:$WIN
+hyprctl dispatch centerwindow address:$WIN
+
+windowrulev2 = animation popin, class:calcurse_dropdown
+
