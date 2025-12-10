@@ -9,8 +9,8 @@ AUR_PACKAGES=(
   "clipse"
   "zen-browser-bin"
   "visual-studio-code-bin"
-  "spicetify-cli"
   "spicetify-themes"
+  "github-desktop-bin"
 )
 
 sudo pacman -Sy
@@ -36,13 +36,6 @@ for package in "${AUR_PACKAGES[@]}"; do
     FAILED_PACKAGES+=("$package")
   fi
 done
-
-echo
-echo "-> Installing github-desktop-bin..."
-if ! yay -S --noconfirm github-desktop-bin; then
-  echo "!! Failed to install github-desktop"
-  FAILED_PACKAGES+=("github-desktop")
-fi
 
 echo
 echo "=== Configuring Spicetify ==="
