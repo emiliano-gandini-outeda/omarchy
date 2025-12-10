@@ -47,6 +47,15 @@ fi
 echo
 echo "=== Configuring Spicetify ==="
 
+SPOTIFY_PREFS="$HOME/.config/spotify/prefs"
+
+# Crear prefs falso si no existe
+if [ ! -f "$SPOTIFY_PREFS" ]; then
+    echo "-> Spotify prefs not found, creating a fake prefs..."
+    mkdir -p "$(dirname "$SPOTIFY_PREFS")"
+    touch "$SPOTIFY_PREFS"
+fi
+
 # Initial backup & apply
 spicetify backup apply
 
