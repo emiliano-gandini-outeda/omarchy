@@ -9,9 +9,21 @@ AUR_PACKAGES=(
   "clipse"
   "zen-browser-bin"
   "visual-studio-code-bin"
+  "spicetify-cli"
+  "spicetify-themes"
 )
 
 sudo pacman -Sy
+
+# Ensure yay exists
+if ! command -v yay &> /dev/null; then
+  echo "-> Installing yay..."
+  sudo pacman -S --needed git base-devel
+  git clone https://aur.archlinux.org/yay.git /tmp/yay
+  cd /tmp/yay
+  makepkg -si --noconfirm
+  cd - >/dev/null
+fi
 
 yay -Sy
 
@@ -27,9 +39,24 @@ done
 
 echo
 echo "-> Installing github-desktop-bin..."
-yay -S --noconfirm github-desktop-bin || echo "!! Failed to install github-desktop"
-FAILED_PACKAGES+=("github-desktop")
+if ! yay -S --noconfirm github-desktop-bin; then
+  echo "!! Failed to install github-desktop"
+  FAILED_PACKAGES+=("github-desktop")
 fi
+
+echo
+echo "=== Configuring Spicetify ==="
+
+# Initial backup & apply
+spicetify backup apply
+
+# Install Marketplace
+curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
+
+spicetify update
+
+# Apply final config
+spicetify apply
 
 echo
 echo "✔ Done! All eclipseOS packages processed."
