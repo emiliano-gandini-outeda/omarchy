@@ -1,5 +1,7 @@
 stop_install_log
 
+chmod +x .config/waybar/scripts/*
+
 echo_in_style() {
   echo "$1" | tte --canvas-width 0 --anchor-text c --frame-rate 640 print
 }
